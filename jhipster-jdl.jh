@@ -1,0 +1,36 @@
+//User
+relationship ManyToOne {
+	Contributor{owner(login)} to User,  
+    Plan{owner(login)} to User,
+    Event{owner} to Contributor
+}
+//Contributors
+entity Contributor {
+	name String required minlength(5),
+    hash String required minlength(5) maxlength(32)
+}
+//Plans
+entity Plan {
+	name String required minlength(3)
+}
+
+//need to add owner of event
+relationship OneToMany {
+	Plan{events} to Event{plan}
+}
+relationship ManyToMany {
+	Event{contributors} to Contributor{events}
+}
+
+
+//Events
+entity Event {
+	name String required minlength(3),
+    start ZonedDateTime,
+    stop ZonedDateTime
+}
+
+
+
+
+
