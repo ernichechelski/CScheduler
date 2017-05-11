@@ -1,0 +1,24 @@
+{
+    "cSchedulerApp": {
+        "contributor" : {
+            "home": {
+                "title": "Contributors",
+                "createLabel": "Dodaj Contributor",
+                "createOrEditLabel": "Dodaj lub edytuj: Contributor"
+            },
+            "created": "Utworzono nowy Contributor z identyfikatorem {{ param }}",
+            "updated": "Uaktualniono Contributor z identyfikatorem {{ param }}",
+            "deleted": "Usunięto Contributor z identyfikatorem {{ param }}",
+            "delete": {
+                "question": "Czy na pewno chcesz usunąć Contributor {{ id }}?"
+            },
+            "detail": {
+                "title": "Contributor"
+            },
+            "name": "Name",
+            "hash": "Hash",
+            "owner": "Owner",
+            "events": "Events"
+        }
+    }
+}
