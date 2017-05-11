@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.16)
 # Database: CScheduler
-# Generation Time: 2017-05-11 13:05:40 +0000
+# Generation Time: 2017-05-11 13:36:52 +0000
 # ************************************************************
 
 
@@ -29,19 +29,19 @@ CREATE TABLE `contributor` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `jhi_hash` varchar(32) NOT NULL,
-  `owner_id` bigint(20) DEFAULT NULL,
+  `owner_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_contributor_owner_id` (`owner_id`),
   CONSTRAINT `fk_contributor_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `jhi_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `contributor` WRITE;
 /*!40000 ALTER TABLE `contributor` DISABLE KEYS */;
 
 INSERT INTO `contributor` (`id`, `name`, `jhi_hash`, `owner_id`)
 VALUES
-	(1,'Ernest Chechelski','asdfasdfdsafs',4),
-	(2,'Michał Chechelski','asdfadsfsadgasdg',4);
+	(1,'Michał','adsfsadfsadfas',4),
+	(2,'Ernest','afadsgfdgasdgag',4);
 
 /*!40000 ALTER TABLE `contributor` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -74,13 +74,13 @@ LOCK TABLES `DATABASECHANGELOG` WRITE;
 
 INSERT INTO `DATABASECHANGELOG` (`ID`, `AUTHOR`, `FILENAME`, `DATEEXECUTED`, `ORDEREXECUTED`, `EXECTYPE`, `MD5SUM`, `DESCRIPTION`, `COMMENTS`, `TAG`, `LIQUIBASE`, `CONTEXTS`, `LABELS`, `DEPLOYMENT_ID`)
 VALUES
-	('00000000000001','jhipster','classpath:config/liquibase/changelog/00000000000000_initial_schema.xml','2017-05-11 15:02:20',1,'EXECUTED','7:64ccb6b6fdd6f22212d3e6ed914737e3','createTable tableName=jhi_user; createIndex indexName=idx_user_login, tableName=jhi_user; createIndex indexName=idx_user_email, tableName=jhi_user; createTable tableName=jhi_authority; createTable tableName=jhi_user_authority; addPrimaryKey tableN...','',NULL,'3.5.3',NULL,NULL,'4507740213'),
-	('20170511130115-1','jhipster','classpath:config/liquibase/changelog/20170511130115_added_entity_Contributor.xml','2017-05-11 15:02:20',2,'EXECUTED','7:ec8d1d5903daaae16fe8eafd57a77870','createTable tableName=contributor','',NULL,'3.5.3',NULL,NULL,'4507740213'),
-	('20170511130116-1','jhipster','classpath:config/liquibase/changelog/20170511130116_added_entity_Plan.xml','2017-05-11 15:02:20',3,'EXECUTED','7:5336199cb950a1831c8dd2920c598c65','createTable tableName=plan','',NULL,'3.5.3',NULL,NULL,'4507740213'),
-	('20170511130117-1','jhipster','classpath:config/liquibase/changelog/20170511130117_added_entity_Event.xml','2017-05-11 15:02:20',4,'EXECUTED','7:7f7bf66ff29aa8ae20933b136725ddfc','createTable tableName=event; dropDefaultValue columnName=jhi_start, tableName=event; dropDefaultValue columnName=jhi_stop, tableName=event; createTable tableName=event_contributors; addPrimaryKey tableName=event_contributors','',NULL,'3.5.3',NULL,NULL,'4507740213'),
-	('20170511130115-2','jhipster','classpath:config/liquibase/changelog/20170511130115_added_entity_constraints_Contributor.xml','2017-05-11 15:02:20',5,'EXECUTED','7:31231cd20b481b5566d4f5da9ab1080e','addForeignKeyConstraint baseTableName=contributor, constraintName=fk_contributor_owner_id, referencedTableName=jhi_user','',NULL,'3.5.3',NULL,NULL,'4507740213'),
-	('20170511130116-2','jhipster','classpath:config/liquibase/changelog/20170511130116_added_entity_constraints_Plan.xml','2017-05-11 15:02:20',6,'EXECUTED','7:2853f64724e527b5a087b1309eeee51f','addForeignKeyConstraint baseTableName=plan, constraintName=fk_plan_owner_id, referencedTableName=jhi_user','',NULL,'3.5.3',NULL,NULL,'4507740213'),
-	('20170511130117-2','jhipster','classpath:config/liquibase/changelog/20170511130117_added_entity_constraints_Event.xml','2017-05-11 15:02:21',7,'EXECUTED','7:4402b8317f79a1e5dd510aeb538fbc8e','addForeignKeyConstraint baseTableName=event_contributors, constraintName=fk_event_contributors_events_id, referencedTableName=event; addForeignKeyConstraint baseTableName=event_contributors, constraintName=fk_event_contributors_contributors_id, re...','',NULL,'3.5.3',NULL,NULL,'4507740213');
+	('00000000000001','jhipster','classpath:config/liquibase/changelog/00000000000000_initial_schema.xml','2017-05-11 15:33:08',1,'EXECUTED','7:64ccb6b6fdd6f22212d3e6ed914737e3','createTable tableName=jhi_user; createIndex indexName=idx_user_login, tableName=jhi_user; createIndex indexName=idx_user_email, tableName=jhi_user; createTable tableName=jhi_authority; createTable tableName=jhi_user_authority; addPrimaryKey tableN...','',NULL,'3.5.3',NULL,NULL,'4509587554'),
+	('20170511133229-1','jhipster','classpath:config/liquibase/changelog/20170511133229_added_entity_Contributor.xml','2017-05-11 15:33:08',2,'EXECUTED','7:092fee9811c7bfa1e592a674c6161552','createTable tableName=contributor','',NULL,'3.5.3',NULL,NULL,'4509587554'),
+	('20170511133230-1','jhipster','classpath:config/liquibase/changelog/20170511133230_added_entity_Plan.xml','2017-05-11 15:33:08',3,'EXECUTED','7:d92ca3a3088809f4e6862f11f59800d8','createTable tableName=plan','',NULL,'3.5.3',NULL,NULL,'4509587554'),
+	('20170511133231-1','jhipster','classpath:config/liquibase/changelog/20170511133231_added_entity_Event.xml','2017-05-11 15:33:08',4,'EXECUTED','7:1b680d7360f2945a0e468c72862b9d52','createTable tableName=event; dropDefaultValue columnName=jhi_start, tableName=event; dropDefaultValue columnName=jhi_stop, tableName=event; createTable tableName=event_contributors; addPrimaryKey tableName=event_contributors','',NULL,'3.5.3',NULL,NULL,'4509587554'),
+	('20170511133229-2','jhipster','classpath:config/liquibase/changelog/20170511133229_added_entity_constraints_Contributor.xml','2017-05-11 15:33:08',5,'EXECUTED','7:31231cd20b481b5566d4f5da9ab1080e','addForeignKeyConstraint baseTableName=contributor, constraintName=fk_contributor_owner_id, referencedTableName=jhi_user','',NULL,'3.5.3',NULL,NULL,'4509587554'),
+	('20170511133230-2','jhipster','classpath:config/liquibase/changelog/20170511133230_added_entity_constraints_Plan.xml','2017-05-11 15:33:08',6,'EXECUTED','7:2853f64724e527b5a087b1309eeee51f','addForeignKeyConstraint baseTableName=plan, constraintName=fk_plan_owner_id, referencedTableName=jhi_user','',NULL,'3.5.3',NULL,NULL,'4509587554'),
+	('20170511133231-2','jhipster','classpath:config/liquibase/changelog/20170511133231_added_entity_constraints_Event.xml','2017-05-11 15:33:08',7,'EXECUTED','7:5e2eab1d0b3b64683cc3128efa0124a7','addForeignKeyConstraint baseTableName=event, constraintName=fk_event_owner_id, referencedTableName=contributor; addForeignKeyConstraint baseTableName=event_contributors, constraintName=fk_event_contributors_events_id, referencedTableName=event; ad...','',NULL,'3.5.3',NULL,NULL,'4509587554');
 
 /*!40000 ALTER TABLE `DATABASECHANGELOG` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -120,18 +120,21 @@ CREATE TABLE `event` (
   `name` varchar(255) NOT NULL,
   `jhi_start` timestamp NULL,
   `jhi_stop` timestamp NULL,
-  `plan_id` bigint(20) DEFAULT NULL,
+  `owner_id` bigint(20) NOT NULL,
+  `plan_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
+  KEY `fk_event_owner_id` (`owner_id`),
   KEY `fk_event_plan_id` (`plan_id`),
+  CONSTRAINT `fk_event_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `contributor` (`id`),
   CONSTRAINT `fk_event_plan_id` FOREIGN KEY (`plan_id`) REFERENCES `plan` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
 
-INSERT INTO `event` (`id`, `name`, `jhi_start`, `jhi_stop`, `plan_id`)
+INSERT INTO `event` (`id`, `name`, `jhi_start`, `jhi_stop`, `owner_id`, `plan_id`)
 VALUES
-	(1,'Stojak xd','2017-05-18 10:00:00','2017-05-18 11:00:00',1);
+	(1,'Służba :D','2017-05-11 08:00:00','2017-05-11 09:00:00',1,1);
 
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -156,7 +159,6 @@ LOCK TABLES `event_contributors` WRITE;
 
 INSERT INTO `event_contributors` (`contributors_id`, `events_id`)
 VALUES
-	(1,1),
 	(2,1);
 
 /*!40000 ALTER TABLE `event_contributors` ENABLE KEYS */;
@@ -269,17 +271,17 @@ CREATE TABLE `jhi_user` (
   UNIQUE KEY `idx_user_login` (`login`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `idx_user_email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `jhi_user` WRITE;
 /*!40000 ALTER TABLE `jhi_user` DISABLE KEYS */;
 
 INSERT INTO `jhi_user` (`id`, `login`, `password_hash`, `first_name`, `last_name`, `email`, `image_url`, `activated`, `lang_key`, `activation_key`, `reset_key`, `created_by`, `created_date`, `reset_date`, `last_modified_by`, `last_modified_date`)
 VALUES
-	(1,'system','$2a$10$mE.qmcV0mFU5NcKh73TZx.z4ueI/.bDWbj0T1BYyqP481kGGarKLG','System','System','system@localhost','',b'1','pl',NULL,NULL,'system','2017-05-11 15:02:20',NULL,'system',NULL),
-	(2,'anonymoususer','$2a$10$j8S5d7Sr7.8VTOYNviDPOeWX8KcYILUVJBsYV83Y5NtECayypx9lO','Anonymous','User','anonymous@localhost','',b'1','pl',NULL,NULL,'system','2017-05-11 15:02:20',NULL,'system',NULL),
-	(3,'admin','$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC','Administrator','Administrator','admin@localhost','',b'1','pl',NULL,NULL,'system','2017-05-11 15:02:20',NULL,'system',NULL),
-	(4,'user','$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K','User','User','user@localhost','',b'1','pl',NULL,NULL,'system','2017-05-11 15:02:20',NULL,'system',NULL);
+	(1,'system','$2a$10$mE.qmcV0mFU5NcKh73TZx.z4ueI/.bDWbj0T1BYyqP481kGGarKLG','System','System','system@localhost','',b'1','pl',NULL,NULL,'system','2017-05-11 15:33:07',NULL,'system',NULL),
+	(2,'anonymoususer','$2a$10$j8S5d7Sr7.8VTOYNviDPOeWX8KcYILUVJBsYV83Y5NtECayypx9lO','Anonymous','User','anonymous@localhost','',b'1','pl',NULL,NULL,'system','2017-05-11 15:33:07',NULL,'system',NULL),
+	(3,'admin','$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC','Administrator','Administrator','admin@localhost','',b'1','pl',NULL,NULL,'system','2017-05-11 15:33:07',NULL,'system',NULL),
+	(4,'user','$2a$10$VEjxo0jq2YG9Rbk2HmX9S.k1uZBGYUHdUcid3g/vfiEl7lwWgOH/K','User','User','user@localhost','',b'1','pl',NULL,NULL,'system','2017-05-11 15:33:07',NULL,'system',NULL);
 
 /*!40000 ALTER TABLE `jhi_user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -322,18 +324,18 @@ DROP TABLE IF EXISTS `plan`;
 CREATE TABLE `plan` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `owner_id` bigint(20) DEFAULT NULL,
+  `owner_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_plan_owner_id` (`owner_id`),
   CONSTRAINT `fk_plan_owner_id` FOREIGN KEY (`owner_id`) REFERENCES `jhi_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `plan` WRITE;
 /*!40000 ALTER TABLE `plan` DISABLE KEYS */;
 
 INSERT INTO `plan` (`id`, `name`, `owner_id`)
 VALUES
-	(1,'Główny',4);
+	(1,'Centrum',4);
 
 /*!40000 ALTER TABLE `plan` ENABLE KEYS */;
 UNLOCK TABLES;
