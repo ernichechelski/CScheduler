@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "owner",
+            "otherEntityName": "user",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "events",
+            "otherEntityName": "event",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "contributors"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength"
+            ],
+            "fieldValidateRulesMinlength": 5
+        },
+        {
+            "fieldName": "hash",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "minlength",
+                "maxlength"
+            ],
+            "fieldValidateRulesMinlength": 5,
+            "fieldValidateRulesMaxlength": 32
+        }
+    ],
+    "changelogDate": "20170511130115",
+    "entityTableName": "contributor",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}
