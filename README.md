@@ -1,4 +1,23 @@
 # CScheduler
+
+App for scheduling events.📅
+
+Currently only basic app is generated.
+TODO:
+1. Create model ✓
+2. Provide easy view to editing events ✕
+3. Provide easy login without password mechanism for contributors  ✕
+4. Match CRUD view to real privileges of contributors ✕
+
+
+User 👤💪 with ROLE_ADMIN. Manage users and everything. Only 1 for application.
+User 👤👱 with ROLE_USER. Manage his contributors and plans.
+Contributor 👤😃 Manage only own events.
+Plan 🗓 represents one calendar for collection of events. 
+
+
+
+
 This application was generated using JHipster 4.4.1, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.4.1](https://jhipster.github.io/documentation-archive/v4.4.1).
 
 ## Development
