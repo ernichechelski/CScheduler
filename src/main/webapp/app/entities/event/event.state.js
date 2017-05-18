@@ -31,6 +31,28 @@
                 }]
             }
         })
+        .state('event-calendar', {
+            parent: 'entity',
+            url: '/event-calendar',
+            data: {
+                authorities: ['ROLE_USER'],
+                pageTitle: 'cSchedulerApp.event.home.title'
+            },
+            views: {
+                'content@': {
+                    templateUrl: 'app/entities/event/events-calendar.html',
+                    controller: 'EventController',
+                    controllerAs: 'vm'
+                }
+            },
+            resolve: {
+                translatePartialLoader: ['$translate', '$translatePartialLoader', function ($translate, $translatePartialLoader) {
+                    $translatePartialLoader.addPart('event');
+                    $translatePartialLoader.addPart('global');
+                    return $translate.refresh();
+                }]
+            }
+        })
         .state('event-detail', {
             parent: 'event',
             url: '/event/{id}',

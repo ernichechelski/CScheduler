@@ -3,14 +3,19 @@
     <jhi-alert></jhi-alert>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-4 no-padding-left">
-                <button class="btn btn-primary" ui-sref="event.new" >
-                    <span class="glyphicon glyphicon-plus"></span>
-                    <span  data-translate="cSchedulerApp.event.home.createLabel">
-                        Create new Event
-                    </span>
-                </button>
-            </div>
+            
+            <div class="btn-group flex-btn-group-container pull-left">
+				<button class="btn btn-primary" ui-sref="event.new">
+					<span class="glyphicon glyphicon-plus"></span> <span
+						data-translate="cSchedulerApp.event.home.createLabel">
+						Create new Event </span>
+				</button>
+				<button class="btn btn-primary" ui-sref="event-calendar">
+					<span class="glyphicon glyphicon-th-list"></span> <span
+						data-translate="cSchedulerApp.event.home.showCalendarLabel"> Show
+						Show calendar </span>
+				</button>
+			</div>
         </div>
     </div>
     <br/>

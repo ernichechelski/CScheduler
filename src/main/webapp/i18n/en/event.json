@@ -4,7 +4,9 @@
             "home": {
                 "title": "Events",
                 "createLabel": "Create a new Event",
-                "createOrEditLabel": "Create or edit a Event"
+                "createOrEditLabel": "Create or edit a Event",
+                "showCalendarLabel": "Show Calendar",
+                "showList": "Show Events List"
             },
             "created": "A new Event is created with identifier {{ param }}",
             "updated": "A Event is updated with identifier {{ param }}",
