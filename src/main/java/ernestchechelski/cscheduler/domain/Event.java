@@ -30,10 +30,12 @@ public class Event implements Serializable {
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "jhi_start")
+    @NotNull
+    @Column(name = "jhi_start", nullable = false)
     private ZonedDateTime start;
 
-    @Column(name = "jhi_stop")
+    @NotNull
+    @Column(name = "jhi_stop", nullable = false)
     private ZonedDateTime stop;
 
     @ManyToOne(optional = false)

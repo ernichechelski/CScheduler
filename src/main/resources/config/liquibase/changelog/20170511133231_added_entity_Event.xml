@@ -27,11 +27,11 @@
             </column>
 
             <column name="jhi_start" type="timestamp">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
             <column name="jhi_stop" type="timestamp">
-                <constraints nullable="true" />
+                <constraints nullable="false" />
             </column>
 
             <column name="owner_id" type="bigint">
